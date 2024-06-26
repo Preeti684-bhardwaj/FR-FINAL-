@@ -146,11 +146,33 @@ function submitanswer(){
 	var lakshya_id=localStorage.getItem("lakshya_id");
 	var assessment_id = localStorage.getItem("assessment_id");  
 
-	var elapsed_time = localStorage.getItem("elapsed_time");
 	
-			
-	var value;
+	var demo_time = (document.getElementById('demo').innerHTML);
+	console.log(demo_time)
+	if(demo_time.length == "11")
+	{
+		
+		var elapsed_time = demo_time.slice(2, 6);
 
+
+	}
+	else if(demo_time.length == "10")
+	{
+		
+		var elapsed_time = demo_time.slice(2, 5);
+
+
+	}
+	else if(demo_time.length == "9")
+	{
+		
+		var elapsed_time = demo_time.slice(2, 4);
+
+
+	}
+
+	var value;
+//  alert(elapsed_time)
 
 if(question_type=='single_choice')
 {
@@ -164,13 +186,13 @@ if(question_type=='single_choice')
 		var ids3 = document.getElementById('myBtn3').value;
 		var ids4 = document.getElementById('myBtn4').value;
 		
-		if(localStorage["key"] == ids1 || localStorage["key"] == ids2 || localStorage["key"] == ids3 || localStorage["key"] == ids4)
+		if(localStorage.getItem("key") == ids1 || localStorage.getItem("key")== ids2 || localStorage.getItem("key") == ids3 || localStorage.getItem("key") == ids4)
 		{
 			
-			value = localStorage["key"];
+			value = localStorage.getItem("key");
 			//alert(value);
 		}
-		if(localStorage["key"] != ids1 && localStorage["key"] != ids2 && localStorage["key"] != ids3 && localStorage["key"] != ids4)
+		if(localStorage.getItem("key") != ids1 && localStorage.getItem("key") != ids2 && localStorage.getItem("key") != ids3 && localStorage.getItem("key") != ids4)
 		{
 			value = "";
 		}
@@ -188,13 +210,13 @@ if(question_type=='single_choice')
 		var ids5 = document.getElementById('myBtn5').value;
 
 		
-		if(localStorage["key"] == ids1 || localStorage["key"] == ids2 || localStorage["key"] == ids3 || localStorage["key"] == ids4 || localStorage["key"] == ids5 )
+		if(localStorage.getItem("key") == ids1 || localStorage.getItem("key") == ids2 || localStorage.getItem("key") == ids3 || localStorage.getItem("key") == ids4 || localStorage.getItem("key") == ids5 )
 		{
 			
-			value = localStorage["key"];
+			value = localStorage.getItem("key");
 			//alert(value);
 		}
-		if(localStorage["key"] != ids1 && localStorage["key"] != ids2 && localStorage["key"] != ids3 && localStorage["key"] != ids4 || localStorage["key"] == ids5 )
+		if(localStorage.getItem("key") != ids1 && localStorage.getItem("key") != ids2 && localStorage.getItem("key") != ids3 && localStorage.getItem("key") != ids4 || localStorage.getItem("key") == ids5 )
 		{
 			value = "";
 		}
@@ -209,13 +231,13 @@ else if(choice_length == "2")
 	var ids2 = document.getElementById('myBtn2').value;
 	
 	
-	if(localStorage["key"] == ids1 || localStorage["key"] == ids2 )
+	if(localStorage.getItem("key") == ids1 || localStorage.getItem("key") == ids2 )
 	{
 		
-		value = localStorage["key"];
+		value = localStorage.getItem("key");
 		//alert(value);
 	}
-	if(localStorage["key"] != ids1 && localStorage["key"] != ids2 )
+	if(localStorage.getItem("key") != ids1 && localStorage.getItem("key") != ids2 )
 	{
 		value = "";
 	}
@@ -232,12 +254,12 @@ else if(choice_length == "3")
 
 	
 	
-	if(localStorage["key"] == ids1 || localStorage["key"] == ids2 || localStorage["key"] == ids3 )
+	if(localStorage.getItem("key") == ids1 || localStorage.getItem("key") == ids2 || localStorage.getItem("key") == ids3 )
 	{
 		
-		value = localStorage["key"];
+		value = localStorage.getItem("key");
 	}
-	if(localStorage["key"] != ids1 && localStorage["key"] != ids2 && localStorage["key"] != ids3 )
+	if(localStorage.getItem("key") != ids1 && localStorage.getItem("key") != ids2 && localStorage.getItem("key") != ids3 )
 	{
 		value = "";
 	}
@@ -253,7 +275,7 @@ else if(choice_length == "3")
 	}
 	else if(question_type=='image_descriptive') 
 	{
-	var value = document.getElementById('imgdesc1').value+""+document.getElementById('imgdesc2').value+""+document.getElementById('imgdesc3').value+""+document.getElementById('imgdesc4').value;
+		var value = document.getElementById('descriptionn1').value;
 	
 	}
 	else if(question_type=='multiple_choice') 
@@ -605,7 +627,6 @@ else if(choice_length == "3")
 	
 	//alert(tim[2]+""+tim[3]);
 	
-	var elapsed_time = localStorage.getItem("elapsed_time");
 
 	
 	
@@ -678,7 +699,8 @@ else if(choice_length == "3")
 			           			
 			           			get_next_qn();
 			           			console.log(status);
-			           			
+								$("#overlay").fadeIn(300);
+
 			           					           			
 			           			}
 			           		else
@@ -697,7 +719,6 @@ else if(choice_length == "3")
 
 	
 }
-
 
 
 function question1(data)

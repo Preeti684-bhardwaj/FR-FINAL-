@@ -170,7 +170,7 @@ function submitanswer(){
 	}
 
 	var value;
- alert(elapsed_time)
+//  alert(elapsed_time)
 
 if(question_type=='single_choice')
 {

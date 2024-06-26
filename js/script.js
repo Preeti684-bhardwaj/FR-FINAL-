@@ -29,7 +29,7 @@ $.ajax({
 			var times = data.elapsed_time;
     
 			// Check if times is null or greater than timer
-			if (times === null|| times === undefined || times=== nan || parseInt(times) > parseInt(timer)) {
+			if (times === null || parseInt(times) > parseInt(timer)) {
 				times = timer; // Set times to timer if it's null or greater than timer
 			}
 			
@@ -170,7 +170,7 @@ function submitanswer(){
 	}
 
 	var value;
- console.log(elapsed_time)
+ alert(elapsed_time)
 
 if(question_type=='single_choice')
 {

@@ -29,7 +29,7 @@ $.ajax({
 			var times = data.elapsed_time;
     
 			// Check if times is null or greater than timer
-			if (times === null||times === undefined ||times=== nan|| parseInt(times) > parseInt(timer)) {
+			if (times === null|| times === undefined || times=== nan || parseInt(times) > parseInt(timer)) {
 				times = timer; // Set times to timer if it's null or greater than timer
 			}
 			

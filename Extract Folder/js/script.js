@@ -5,9 +5,10 @@ function get_next_qn()
 {
 
 	$("#overlay").fadeIn(300);
-	
+
 	var lakshya_id=localStorage.getItem("lakshya_id");
 	var assessment_id = localStorage.getItem("assessment_id");
+	var timer =localStorage.getItem("timer")
 	var page5 = "<label class=\"QLable\" id=\"Q1\"\>total_questions1</label>";
 	var collectionss = "";
 	var page6 = "<label class=\"QLable\" id=\"Q2\"\ style=\"color:green\">total_questions2</label>";	
@@ -25,24 +26,25 @@ $.ajax({
         	
             var obj = data.question;
             var question_id = obj.id;
-           
-			  var times = data.elapsed_time;
-			  
-			  //console.log(times);
-      		      		
-			localStorage.setItem("elapsed_time",times);
-			if (!executed)
-			{
-			initCountdown(times);
-			executed = true;
-
-		}
+			var times = data.elapsed_time;
+    
+			// Check if times is null or greater than timer
+			if (times === null || parseInt(times) > parseInt(timer)) {
+				times = timer; // Set times to timer if it's null or greater than timer
+			}
+			
+			localStorage.setItem("elapsed_time", times);
+			if (!executed) {
+				initCountdown(times);
+				executed = true;
+			}
 
 	  		var answered_questions=data.answered_questions;
            	
            	var answered_questionss=data.answered_questions;
           
             var total_questions = data.total_questions;
+
            
             document.getElementById('inc').value = (answered_questions+1)+" of "+total_questions;
             
@@ -83,12 +85,7 @@ $.ajax({
 
             		
             		 $("#attended").append(collectionsss);
-            		 
-            		 
-            		
-            		
-            		 
-        
+            
             localStorage.setItem("id1",question_id);
 			question_type = obj.question_type;
 			
@@ -126,11 +123,6 @@ $.ajax({
 
             
         }
-
-
-
-
-	
 	
 }).done(function()  {
     setTimeout(function(){
@@ -142,6 +134,8 @@ $.ajax({
 });
 
 }
+
+
 
 
 

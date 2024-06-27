@@ -35,6 +35,7 @@ $.ajax({
 			
 			localStorage.setItem("elapsed_time", times);
 			if (!executed) {
+				console.log(times);
 				initCountdown(times);
 				executed = true;
 			}

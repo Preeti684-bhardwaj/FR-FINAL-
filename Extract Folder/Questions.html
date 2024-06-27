@@ -1010,18 +1010,16 @@ function secondstohms(seconds)
 </script> -->
 
  
- 
 <script type="text/javascript">
-
-
 
 	function initCountdown(times) 
 {
+  console.log("i am running from questions");
 
-			
 	function event_click( event )
 {	   
-	    
+  console.log("line 942 quenstions");
+    
 	    if( interval === null )
 	    {
 	      
@@ -1075,20 +1073,16 @@ function secondstohms(seconds)
 	    if( seconds == 0 && minutes == 0 && hours == 0 )
 	    {
 	        alert("Your Time Is Up..");
-	    	window.location ="examsummary.html";
-	      
+	    	  window.location.href="examsummary.html";
 	    }
 	    
 	    
 	    if (seconds < 10) 
 	    {
-	    
-	      outputElement.innerHTML = hours + ": " + minutes + ": " + "0" + seconds + " ";
-	      
+	       outputElement.innerHTML = hours + ": " + minutes + ": " + "0" + seconds + " ";     
 	    }
 	    else 
 	    {
-	    
 	      outputElement.innerHTML = hours + ": " + minutes + ": " + seconds + " "; 
 	    } 
 }
@@ -1098,30 +1092,13 @@ function secondstohms(seconds)
 	  var toggleElement = document.getElementById('toggle');
 	  var interval = null;
 	  	  	  
-    
 	  var time = [0,times,1];
-	
-	 
-	 
 	
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  
-
-
-
-
-
 	
 }	
-	initCountdown();
-	
-
-
-	
-	
-	
-
-	
+initCountdown();
 </script>
  
 

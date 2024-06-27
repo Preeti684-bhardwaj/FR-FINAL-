@@ -29,9 +29,9 @@ $.ajax({
 			// var times = data.elapsed_time;
     
 			// Check if times is null or greater than timer
-			if (times === null ||times === NaN || parseInt(times) > parseInt(timer)) {
-				times = timer; // Set times to timer if it's null or greater than timer
-			}
+			// if (times === null ||times === NaN || parseInt(times) > parseInt(timer)) {
+			// 	times = timer; // Set times to timer if it's null or greater than timer
+			// }
 			
 			localStorage.setItem("elapsed_time", data.elapsed_time);
 			if (!executed) {

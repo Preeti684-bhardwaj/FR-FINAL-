@@ -936,6 +936,7 @@ function snapfucn()
 	function initCountdown(times) 
 {
   console.log("i am running from questions");
+  const timer=localStorage.getItem("elapsed_time")
 
 	function event_click( event )
 {	   
@@ -1013,7 +1014,7 @@ function snapfucn()
 	  var toggleElement = document.getElementById('toggle');
 	  var interval = null;
 	  	  	  
-	  var time = [0,times,1];
+	  var time = [0,timer,1];
 	
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  

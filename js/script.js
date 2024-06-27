@@ -35,7 +35,6 @@ $.ajax({
 			
 			localStorage.setItem("elapsed_time", times);
 			if (!executed) {
-				console.log(times);
 				initCountdown(times);
 				executed = true;
 			}
@@ -146,26 +145,32 @@ function submitanswer(){
 	var assessment_id = localStorage.getItem("assessment_id");  
 
 	
-	var demo_time = document.getElementById('demo').innerHTML;
-console.log(demo_time);
+	var demo_time = (document.getElementById('demo').innerHTML);
+	console.log(demo_time)
+	if(demo_time.length == "11")
+	{
+		
+		var elapsed_time = demo_time.slice(2, 6);
 
-var timeParts = demo_time.split(':');
-var hours = parseInt(timeParts[0]) || 0;
-var minutes = parseInt(timeParts[1]) || 0;
-var seconds = parseInt(timeParts[2]) || 0;
 
-// Convert to a standard format
-minutes += hours * 60;
-var elapsed_time = padZero(Math.floor(minutes / 60)) + ':' + padZero(minutes % 60) + ':' + padZero(seconds);
+	}
+	else if(demo_time.length == "10")
+	{
+		
+		var elapsed_time = demo_time.slice(2, 5);
 
-console.log(elapsed_time);
 
-function padZero(num) {
-    return num < 10 ? '0' + num : num;
-}
+	}
+	else if(demo_time.length == "9")
+	{
+		
+		var elapsed_time = demo_time.slice(2, 4);
+
+
+	}
 
 	var value;
-//  alert(elapsed_time)
+ alert(elapsed_time)
 
 if(question_type=='single_choice')
 {

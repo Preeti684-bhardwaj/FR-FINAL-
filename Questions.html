@@ -936,85 +936,84 @@ function snapfucn()
 	function initCountdown(times) 
 {
   console.log("i am running from questions");
-  
+
 	function event_click( event )
-  {	   
-    console.log("line 942 questions");
+{	   
+  console.log("line 942 quenstions");
     
-    if( interval === null )
-    {
-      
-      start();
-      event.target.className = 'rash';
-      
-    } else 
-    
-    {
-      
-      pause();
-      event.target.className = 'zzz';
-      
-    }
-    
-  }
-  
-  function start()
-  {
-    pause();
-    interval = setInterval( count, 1000 );
-    
-  }
-  function pause() 
-  {
-    
-    clearInterval( interval );
-    interval = null;
-    
-  }
-  
-  
-  function count()
-  {
-    
-    
-    
-    time[2]--;
-    
-    if( time[2] == -1 )
-    {
-      
-      time[1]--;
-      time[2] = 59;
-      
-    }
-    
-    
-    var [ hours, minutes, seconds ] = time;
-    
-    if( seconds == 0 && minutes == 0 && hours == 0 )
-    {
-      alert("Your Time Is Up..");
-      window.location.href="examsummary.html";
-    }
-    
-    
-    if (seconds < 10) 
-    {
-      outputElement.innerHTML = hours + ": " + minutes + ": " + "0" + seconds + " ";     
-    }
-    else 
-    {
-      outputElement.innerHTML = hours + ": " + minutes + ": " + seconds + " "; 
-    } 
-  }
-  
-  
-  var outputElement = document.getElementById('demo');
-  var toggleElement = document.getElementById('toggle');
-  var interval = null;
-  
-  const timer=localStorage.getItem("elapsed_time")
-  var time = [0,timer,1];
+	    if( interval === null )
+	    {
+	      
+	      start();
+	      event.target.className = 'rash';
+	     
+	    } else 
+	    
+	    {
+	      
+	      pause();
+	      event.target.className = 'zzz';
+	      
+	    }
+	    
+}
+	  
+	  function start()
+{
+	    pause();
+	    interval = setInterval( count, 1000 );
+	    
+}
+	  function pause() 
+{
+	  
+	    clearInterval( interval );
+	    interval = null;
+	    
+}
+	  
+	  
+	  function count()
+{
+	    
+	    
+	    
+	    time[2]--;
+	    
+	    if( time[2] == -1 )
+	    {
+	    
+	      time[1]--;
+	      time[2] = 59;
+	      
+	    }
+	 
+	    
+	    var [ hours, minutes, seconds ] = time;
+
+	    if( seconds == 0 && minutes == 0 && hours == 0 )
+	    {
+	        alert("Your Time Is Up..");
+	    	  window.location.href="examsummary.html";
+	    }
+	    
+	    
+	    if (seconds < 10) 
+	    {
+	       outputElement.innerHTML = hours + ": " + minutes + ": " + "0" + seconds + " ";     
+	    }
+	    else 
+	    {
+	      outputElement.innerHTML = hours + ": " + minutes + ": " + seconds + " "; 
+	    } 
+}
+	  
+	  
+	  var outputElement = document.getElementById('demo');
+	  var toggleElement = document.getElementById('toggle');
+	  var interval = null;
+	  	  	  
+	  var time = [0,times,1];
 	
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  

@@ -147,27 +147,28 @@ function submitanswer(){
 	
 	var demo_time = (document.getElementById('demo').innerHTML);
 	console.log(demo_time)
-	if(demo_time.length == "11")
-	{
+	const elapsed_time=demo_time
+	// if(demo_time.length == "11")
+	// {
 		
-		var elapsed_time = demo_time.slice(2, 6);
+	// 	var elapsed_time = demo_time.slice(2, 6);
 
 
-	}
-	else if(demo_time.length == "10")
-	{
+	// }
+	// else if(demo_time.length == "10")
+	// {
 		
-		var elapsed_time = demo_time.slice(2, 5);
+	// 	var elapsed_time = demo_time.slice(2, 5);
 
 
-	}
-	else if(demo_time.length == "9")
-	{
+	// }
+	// else if(demo_time.length == "9")
+	// {
 		
-		var elapsed_time = demo_time.slice(2, 4);
+	// 	var elapsed_time = demo_time.slice(2, 4);
 
 
-	}
+	// }
 
 	var value;
  alert(elapsed_time)

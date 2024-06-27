@@ -26,16 +26,16 @@ $.ajax({
         	
             var obj = data.question;
             var question_id = obj.id;
-			// var times = data.elapsed_time;
+			var times = data.elapsed_time;
     
 			// Check if times is null or greater than timer
-			// if (times === null ||times === NaN || parseInt(times) > parseInt(timer)) {
-			// 	times = timer; // Set times to timer if it's null or greater than timer
-			// }
+			if (times === null ||times === NaN || parseInt(times) > parseInt(timer)) {
+				times = timer; // Set times to timer if it's null or greater than timer
+			}
 			
 			localStorage.setItem("elapsed_time", times);
 			if (!executed) {
-				initCountdown(data.elapsed_time);
+				initCountdown(times);
 				executed = true;
 			}
 
@@ -147,31 +147,30 @@ function submitanswer(){
 	
 	var demo_time = (document.getElementById('demo').innerHTML);
 	console.log(demo_time)
-	const elapsed_time=demo_time
-	// if(demo_time.length == "11")
-	// {
+	if(demo_time.length == "11")
+	{
 		
-	// 	var elapsed_time = demo_time.slice(2, 6);
+		var elapsed_time = demo_time.slice(2, 6);
 
 
-	// }
-	// else if(demo_time.length == "10")
-	// {
+	}
+	else if(demo_time.length == "10")
+	{
 		
-	// 	var elapsed_time = demo_time.slice(2, 5);
+		var elapsed_time = demo_time.slice(2, 5);
 
 
-	// }
-	// else if(demo_time.length == "9")
-	// {
+	}
+	else if(demo_time.length == "9")
+	{
 		
-	// 	var elapsed_time = demo_time.slice(2, 4);
+		var elapsed_time = demo_time.slice(2, 4);
 
 
-	// }
+	}
 
 	var value;
- alert(elapsed_time)
+//  alert(elapsed_time)
 
 if(question_type=='single_choice')
 {

@@ -145,29 +145,23 @@ function submitanswer(){
 	var assessment_id = localStorage.getItem("assessment_id");  
 
 	
-	var demo_time = (document.getElementById('demo').innerHTML);
-	console.log(demo_time)
-	if(demo_time.length == "11")
-	{
-		
-		var elapsed_time = demo_time.slice(2, 6);
+	var demo_time = document.getElementById('demo').innerHTML;
+console.log(demo_time);
 
+var timeParts = demo_time.split(':');
+var hours = parseInt(timeParts[0]) || 0;
+var minutes = parseInt(timeParts[1]) || 0;
+var seconds = parseInt(timeParts[2]) || 0;
 
-	}
-	else if(demo_time.length == "10")
-	{
-		
-		var elapsed_time = demo_time.slice(2, 5);
+// Convert to a standard format
+minutes += hours * 60;
+var elapsed_time = padZero(Math.floor(minutes / 60)) + ':' + padZero(minutes % 60) + ':' + padZero(seconds);
 
+console.log(elapsed_time);
 
-	}
-	else if(demo_time.length == "9")
-	{
-		
-		var elapsed_time = demo_time.slice(2, 4);
-
-
-	}
+function padZero(num) {
+    return num < 10 ? '0' + num : num;
+}
 
 	var value;
 //  alert(elapsed_time)

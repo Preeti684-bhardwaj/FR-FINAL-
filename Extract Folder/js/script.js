@@ -24,15 +24,16 @@ function get_next_qn() {
     success: function (data) {
       var obj = data.question;
       var question_id = obj.id;
-      var times = data.elapsed_time;
+    //   var times = data.elapsed_time;
 
     //   // Check if times is null or greater than timer
     //   if (times === null || parseInt(times) > parseInt(timer)) {
     //     times = timer; // Set times to timer if it's null or greater than timer
     //   }
 
-      localStorage.setItem("elapsed_time", times);
+      localStorage.setItem("elapsed_time", data.elapsed_time);
       if (!executed) {
+		var times = localStorage.getItem("elapsed_time")
         console.log(times);
         initCountdown(times);
         executed = true;

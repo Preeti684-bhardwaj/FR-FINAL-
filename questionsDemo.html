@@ -245,8 +245,8 @@ footer {
 		<ul class="nav navbar-nav" style="display: flex;align-items: center;justify-content:space-around;">
 		  <!-- <li ><a href="#"><img src="img/toyota_logo.png" style="margin-top:-15px;margin-left:-50px;width:207px;height:64px"></a></li> -->
       <div class="assessment" style="margin-top: 11px;"><li ><a href="#" style="color:white;font-size:15px;">Assessment</a></li></div>
-      <li id="toggle" style="list-style-type: none;"> <a href="/timer1.html" onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
-      <li style="list-style-type: none;"> <a style="color: white;text-decoration: none;"><img src="img1/quit.png" onclick="quit()" ><p><span>Quit</span></p></a></li>
+      <li id="toggle" style="list-style-type: none;"> <button onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></button></li>
+      <li style="list-style-type: none;"> <button style="color: white;text-decoration: none;"><img src="img1/quit.png" onclick="quit()" ><p><span>Quit</span></p></button></li>
     </ul>
 	  </div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
@@ -954,6 +954,14 @@ function snapfucn()
 
 	function initCountdown(times) 
 {
+  console.log("i am running from questions");
+  console.log("initCountdown called with times:", times);
+
+// If times is undefined, null, or not a number, set a default value
+if (typeof times !== 'number' || isNaN(times)) {
+  console.warn("Invalid times value, using default");
+  times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
+}
 
 	function event_click( event )
 {	   

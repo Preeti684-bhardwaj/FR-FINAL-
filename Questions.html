@@ -937,7 +937,7 @@ function snapfucn()
   console.log("initCountdown called with times:", times);
 
 // If times is undefined, null, or not a number, set a default value
-if (times==undefined || times !== 'number' || isNaN(times)) {
+if (times==undefined || typeof times !== 'number' || isNaN(times)) {
   var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
   // var timer =localStorage.getItem("timer")

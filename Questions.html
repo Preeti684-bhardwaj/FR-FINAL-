@@ -933,7 +933,7 @@ function snapfucn()
 
 	function initCountdown(times) 
 {
-  if(!times){
+  if(!times || times==undefined || isNaN(times)){
     var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
     $.ajax({

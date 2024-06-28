@@ -180,7 +180,7 @@ option {
 </style>
 </head>
 
-<body onkeydown="AltDown();" onload="initCountdown(times)">
+<body onkeydown="AltDown();" onload="initCountdown()">
 
 <!-- HEADER STARTS -->
 
@@ -199,7 +199,7 @@ option {
  <ul class="navbar-nav navbar-right">
  
 <li id="toggle"  style="list-style-type: none;"><button onclick="check()"   style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/pause.png" style="margin-top: 14px;padding-left: 11px;"><p style="padding-right: 15px"><span>Pause</span></p></button></li>
-<li style="list-style-type: none;"><button onclick="quit()" style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="justify-content: center; justify-items: center; align-items: center;"><span>Quit</span></p></button></li>
+<li style="list-style-type: none;"><button onclick="quit()" style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="padding-left: 20px;"><span>Quit</span></p></button></li>
 </ul>
 </div>
 </div>
@@ -338,7 +338,7 @@ option {
 	</div>
 </div>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   $(document).ready(function() 
   {
            get_next_qn();
@@ -353,7 +353,7 @@ option {
       } 
   });
   
-  </script> -->
+  </script>
 <script>
   function quit() {
     if (confirm("Are you sure you want to quit?")) {
@@ -933,6 +933,22 @@ function snapfucn()
 
 	function initCountdown(times) 
 {
+  if(!times){
+    var lakshya_id = localStorage.getItem("lakshya_id");
+  var assessment_id = localStorage.getItem("assessment_id");
+    $.ajax({
+    url:
+      "https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id=" +
+      lakshya_id +
+      "&assessment_id=" +
+      assessment_id +
+      "",
+    type: "GET",
+    data: "json",
+    success: function (data) {
+      times=data.elapsed_time
+  }
+});
   console.log("i am running from questions");
   console.log("initCountdown called with times:", times);
 
@@ -1024,7 +1040,8 @@ function snapfucn()
 	  toggleElement.click();	  
 	
 }	
-// initCountdown();
+}
+initCountdown();
 </script>
  
 <script type="text/javascript">

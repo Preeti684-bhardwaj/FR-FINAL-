@@ -28,7 +28,7 @@ function get_next_qn() {
       //   if (times === null || parseInt(times) > parseInt(timer)) {
       //     times = timer; // Set times to timer if it's null or greater than timer
       //   }
-      var times = data.elapsed_time;
+      // var times = data.elapsed_time;
       // if (typeof times !== "number" || isNaN(times)) {
       //   console.warn("Invalid times value, using default");
       //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set

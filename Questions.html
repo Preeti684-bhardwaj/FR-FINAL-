@@ -941,6 +941,7 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
   console.log("coming from api ",times);
   var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
+
   // var timer =localStorage.getItem("timer")
   // var page5 = '<label class="QLable" id="Q1">total_questions1</label>';
   // var collectionss = "";
@@ -948,15 +949,11 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
   //   '<label class="QLable" id="Q2" style="color:green">total_questions2</label>';
   // var collectionsss = "";
   $.ajax({
-    url:
-      "https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id=" +
-      lakshya_id +
-      "&assessment_id=" +
-      assessment_id +
-      "",
-    type: "GET",
-    data: "json",
-    success: function (data) {
+    url:"https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id="+lakshya_id+"&assessment_id="+assessment_id+"",
+       	type:"GET",
+       	data: "json",
+        success: function(data)
+        { 
       // var obj = data.question;
       // var question_id = obj.id;
       times = data.elapsed_time;

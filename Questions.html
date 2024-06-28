@@ -937,15 +937,15 @@ function snapfucn()
   console.log("initCountdown called with times:", times);
 
 // If times is undefined, null, or not a number, set a default value
-if (!times || times==undefined || times !== 'number' || isNaN(times)) {
+if (times==undefined || times !== 'number' || isNaN(times)) {
   var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
   // var timer =localStorage.getItem("timer")
-  var page5 = '<label class="QLable" id="Q1">total_questions1</label>';
-  var collectionss = "";
-  var page6 =
-    '<label class="QLable" id="Q2" style="color:green">total_questions2</label>';
-  var collectionsss = "";
+  // var page5 = '<label class="QLable" id="Q1">total_questions1</label>';
+  // var collectionss = "";
+  // var page6 =
+  //   '<label class="QLable" id="Q2" style="color:green">total_questions2</label>';
+  // var collectionsss = "";
   $.ajax({
     url:
       "https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id=" +
@@ -959,11 +959,12 @@ if (!times || times==undefined || times !== 'number' || isNaN(times)) {
       // var obj = data.question;
       // var question_id = obj.id;
       times = data.elapsed_time;
+      console.log("coming from api ",times);
       // if (typeof times !== "number" || isNaN(times)) {
       //       console.warn("Invalid times value, using default");
       //     //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
       //     }
-        console.log(times);
+        // console.log(times);
         // initCountdown(times);
       }
       });

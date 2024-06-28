@@ -28,10 +28,10 @@ function get_next_qn() {
       //   if (times === null || parseInt(times) > parseInt(timer)) {
       //     times = timer; // Set times to timer if it's null or greater than timer
       //   }
-
-      localStorage.setItem("elapsed_time", data.elapsed_time);
+var times=data.elapsed_time
+      // localStorage.setItem("elapsed_time", data.elapsed_time);
       if (!executed) {
-        var times = localStorage.getItem("elapsed_time");
+        // var times = localStorage.getItem("elapsed_time");
         console.log(times);
         initCountdown(times);
         executed = true;

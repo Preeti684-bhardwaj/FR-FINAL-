@@ -20,6 +20,7 @@ function get_next_qn() {
     type: "GET",
     data: "json",
     success: function (data) {
+      console.log("function",data);
       var obj = data.question;
       var question_id = obj.id;
       //   var times = data.elapsed_time;

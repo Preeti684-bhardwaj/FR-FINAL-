@@ -199,7 +199,7 @@ option {
  <ul class="navbar-nav navbar-right">
  
 <li id="toggle"  style="list-style-type: none;"><button onclick="check()"   style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/pause.png" style="margin-top: 14px;padding-left: 11px;"><p style="padding-right: 15px"><span>Pause</span></p></button></li>
-<li style="list-style-type: none;"><button onclick="quit()" style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="padding-left: 20px;"><span>Quit</span></p></button></li>
+<li style="list-style-type: none;"><button onclick="quit()" style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="padding-left: 15px;"><span>Quit</span></p></button></li>
 </ul>
 </div>
 </div>
@@ -933,29 +933,40 @@ function snapfucn()
 
 	function initCountdown(times) 
 {
-  if(!times || times===undefined || isNaN(times)){
-    var lakshya_id = localStorage.getItem("lakshya_id");
-  var assessment_id = localStorage.getItem("assessment_id");
-    $.ajax({
-    url:
-      "https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id=" +
-      lakshya_id +
-      "&assessment_id=" +
-      assessment_id,
-    type: "GET",
-    data: "json",
-    success: function (data) {
-      times=data.elapsed_time
-  }
-});
   console.log("i am running from questions");
   console.log("initCountdown called with times:", times);
 
 // If times is undefined, null, or not a number, set a default value
-// if (typeof times !== 'number' || isNaN(times)) {
-//   console.warn("Invalid times value, using default");
-//   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
-// }
+if (!times || times==undefined || times !== 'number' || isNaN(times)) {
+  var lakshya_id = localStorage.getItem("lakshya_id");
+  var assessment_id = localStorage.getItem("assessment_id");
+  // var timer =localStorage.getItem("timer")
+  var page5 = '<label class="QLable" id="Q1">total_questions1</label>';
+  var collectionss = "";
+  var page6 =
+    '<label class="QLable" id="Q2" style="color:green">total_questions2</label>';
+  var collectionsss = "";
+  $.ajax({
+    url:
+      "https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id=" +
+      lakshya_id +
+      "&assessment_id=" +
+      assessment_id +
+      "",
+    type: "GET",
+    data: "json",
+    success: function (data) {
+      // var obj = data.question;
+      // var question_id = obj.id;
+      times = data.elapsed_time;
+      // if (typeof times !== "number" || isNaN(times)) {
+      //       console.warn("Invalid times value, using default");
+      //     //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
+      //     }
+        console.log(times);
+        // initCountdown(times);
+      }
+      });
 
 	function event_click( event )
 {	   
@@ -1038,8 +1049,8 @@ function snapfucn()
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  
 	
-}	
 }
+}	
 initCountdown();
 </script>
  

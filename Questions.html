@@ -938,6 +938,7 @@ function snapfucn()
 
 // If times is undefined, null, or not a number, set a default value
 if (times==undefined || typeof times !== 'number' || isNaN(times)) {
+  console.log("coming from api ",times);
   var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
   // var timer =localStorage.getItem("timer")
@@ -959,7 +960,6 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
       // var obj = data.question;
       // var question_id = obj.id;
       times = data.elapsed_time;
-      console.log("coming from api ",times);
       // if (typeof times !== "number" || isNaN(times)) {
       //       console.warn("Invalid times value, using default");
       //     //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set

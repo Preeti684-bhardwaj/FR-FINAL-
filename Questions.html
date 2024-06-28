@@ -933,19 +933,12 @@ function snapfucn()
 
 	function initCountdown(times) {
   console.log("i am running from questions");
-  console.log("initCountdown called with times:", times);
+  // console.log("initCountdown called with times:", times);
 // If times is undefined, null, or not a number, set a default value
 if (times==undefined || typeof times !== 'number' || isNaN(times)) {
   console.log("coming from api ",times);
   var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
-
-  // var timer =localStorage.getItem("timer")
-  // var page5 = '<label class="QLable" id="Q1">total_questions1</label>';
-  // var collectionss = "";
-  // var page6 =
-  //   '<label class="QLable" id="Q2" style="color:green">total_questions2</label>';
-  // var collectionsss = "";
   $.ajax({
     url:"https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id="+lakshya_id+"&assessment_id="+assessment_id+"",
        	type:"GET",
@@ -962,11 +955,90 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
         //     }
         // console.log(times);
         // initCountdown(times);
-        var time = [0,times,1];
+        function event_click( event )
+{	   
+  console.log("line 942 quenstions");
+    
+	    if( interval === null )
+	    {
+	      
+	      start();
+	      event.target.className = 'rash';
+	     
+	    } else 
+	    
+	    {
+	      
+	      pause();
+	      event.target.className = 'zzz';
+	      
+	    }
+	    
+}
+	  
+	  function start()
+{
+	    pause();
+	    interval = setInterval( count, 1000 );
+	    
+}
+	  function pause() 
+{
+	  
+	    clearInterval( interval );
+	    interval = null;
+	    
+}
+	  
+	  
+	  function count()
+{
+	    
+	    
+	    
+	    time[2]--;
+	    
+	    if( time[2] == -1 )
+	    {
+	    
+	      time[1]--;
+	      time[2] = 59;
+	      
+	    }
+	 
+	    
+	    var [ hours, minutes, seconds ] = time;
+
+	    if( seconds == 0 && minutes == 0 && hours == 0 )
+	    {
+	        alert("Your Time Is Up..");
+	    	  window.location.href="examsummary.html";
+	    }
+	    
+	    
+	    if (seconds < 10) 
+	    {
+	       outputElement.innerHTML = hours + ": " + minutes + ": " + "0" + seconds + " ";     
+	    }
+	    else 
+	    {
+	      outputElement.innerHTML = hours + ": " + minutes + ": " + seconds + " "; 
+	    } 
+}
+	  
+	  
+	  var outputElement = document.getElementById('demo');
+	  var toggleElement = document.getElementById('toggle');
+	  var interval = null;
+	  	  	  
+	  var time = [0,times,1];
+	
+	  toggleElement.addEventListener( 'click', event_click );
+	  toggleElement.click();	
       }
     });
     
-  }
+  }else{
 	function event_click( event )
 {	   
   console.log("line 942 quenstions");
@@ -1047,7 +1119,7 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
 	
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  
-	
+}
 }	
 initCountdown();
 </script>

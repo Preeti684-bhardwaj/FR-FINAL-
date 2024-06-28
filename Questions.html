@@ -931,11 +931,9 @@ function snapfucn()
 
 <script type="text/javascript">
 
-	function initCountdown(times) 
-{
+	function initCountdown(times) {
   console.log("i am running from questions");
   console.log("initCountdown called with times:", times);
-
 // If times is undefined, null, or not a number, set a default value
 if (times==undefined || typeof times !== 'number' || isNaN(times)) {
   console.log("coming from api ",times);
@@ -958,14 +956,16 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
       // var question_id = obj.id;
       times = data.elapsed_time;
       // if (typeof times !== "number" || isNaN(times)) {
-            console.warn("data",data);
-      //     //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
-      //     }
+        console.warn("data",data);
+        console.log(times);
+        //     //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
+        //     }
         // console.log(times);
         // initCountdown(times);
       }
-      });
-
+    });
+    
+  }
 	function event_click( event )
 {	   
   console.log("line 942 quenstions");
@@ -1047,7 +1047,6 @@ if (times==undefined || typeof times !== 'number' || isNaN(times)) {
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  
 	
-}
 }	
 initCountdown();
 </script>

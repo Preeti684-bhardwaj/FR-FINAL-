@@ -933,7 +933,7 @@ function snapfucn()
 
 	function initCountdown(times) 
 {
-  if(!times || times==undefined || isNaN(times)){
+  if(!times || times===undefined || isNaN(times)){
     var lakshya_id = localStorage.getItem("lakshya_id");
   var assessment_id = localStorage.getItem("assessment_id");
     $.ajax({
@@ -941,8 +941,7 @@ function snapfucn()
       "https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id=" +
       lakshya_id +
       "&assessment_id=" +
-      assessment_id +
-      "",
+      assessment_id,
     type: "GET",
     data: "json",
     success: function (data) {

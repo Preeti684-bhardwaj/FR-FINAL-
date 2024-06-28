@@ -952,11 +952,33 @@ function snapfucn()
 
 <script type="text/javascript">
 
-	function initCountdown(times) 
-{
-
-	function event_click( event )
+	function initCountdown(times) {
+  console.log("i am running from questions");
+  // console.log("initCountdown called with times:", times);
+// If times is undefined, null, or not a number, set a default value
+if (times==undefined || typeof times !== 'number' || isNaN(times)) {
+  console.log("coming from api ",times);
+  var lakshya_id = localStorage.getItem("lakshya_id");
+  var assessment_id = localStorage.getItem("assessment_id");
+  $.ajax({
+    url:"https://toyota-lakshya-onlineassessment.in/api/get_next_question/?login_id="+lakshya_id+"&assessment_id="+assessment_id+"",
+       	type:"GET",
+       	data: "json",
+        success: function(data)
+        { 
+      // var obj = data.question;
+      // var question_id = obj.id;
+      var times = data.elapsed_time;
+      // if (typeof times !== "number" || isNaN(times)) {
+        console.warn("data",data);
+        console.log(times);
+        //     //   // times = parseInt(localStorage.getItem("elapsed_time")); // Default to 1 hour if timer is not set
+        //     }
+        // console.log(times);
+        // initCountdown(times);
+        function event_click( event )
 {	   
+  console.log("line 942 quenstions");
     
 	    if( interval === null )
 	    {
@@ -1030,17 +1052,98 @@ function snapfucn()
 	  var toggleElement = document.getElementById('toggle');
 	  var interval = null;
 	  	  	  
+	  var time = [0,times,1];
+	
+	  toggleElement.addEventListener( 'click', event_click );
+	  toggleElement.click();	
+      }
+    });
     
+  }else{
+	function event_click( event )
+{	   
+  console.log("line 942 quenstions");
+    
+	    if( interval === null )
+	    {
+	      
+	      start();
+	      event.target.className = 'rash';
+	     
+	    } else 
+	    
+	    {
+	      
+	      pause();
+	      event.target.className = 'zzz';
+	      
+	    }
+	    
+}
+	  
+	  function start()
+{
+	    pause();
+	    interval = setInterval( count, 1000 );
+	    
+}
+	  function pause() 
+{
+	  
+	    clearInterval( interval );
+	    interval = null;
+	    
+}
+	  
+	  
+	  function count()
+{
+	    
+	    
+	    
+	    time[2]--;
+	    
+	    if( time[2] == -1 )
+	    {
+	    
+	      time[1]--;
+	      time[2] = 59;
+	      
+	    }
+	 
+	    
+	    var [ hours, minutes, seconds ] = time;
+
+	    if( seconds == 0 && minutes == 0 && hours == 0 )
+	    {
+	        alert("Your Time Is Up..");
+	    	  window.location.href="examsummary.html";
+	    }
+	    
+	    
+	    if (seconds < 10) 
+	    {
+	       outputElement.innerHTML = hours + ": " + minutes + ": " + "0" + seconds + " ";     
+	    }
+	    else 
+	    {
+	      outputElement.innerHTML = hours + ": " + minutes + ": " + seconds + " "; 
+	    } 
+}
+	  
+	  
+	  var outputElement = document.getElementById('demo');
+	  var toggleElement = document.getElementById('toggle');
+	  var interval = null;
+	  	  	  
 	  var time = [0,times,1];
 	
 	  toggleElement.addEventListener( 'click', event_click );
 	  toggleElement.click();	  
-	
+}
 }	
-	initCountdown();
-	
+initCountdown();
 </script>
- 
 <script type="text/javascript">
 
 	history.pushState(null, null, location.href);	

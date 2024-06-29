@@ -196,10 +196,10 @@ option {
           <div class="brand-logo" style="margin-top: 11px;"><li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;text-align: center;font-size: 18px; margin-top: 21px;">Assessment</a></li></div>
            
         </ul>
- <ul class="navbar-nav navbar-right">
-  <div style="cursor: pointer;">
-<li id="toggle"  style="list-style-type: none;"><button onclick="check()"  style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;"><img src="img1/pause.png" style="margin-top: 14px;padding-left: 11px;"><p style="padding-right: 15px"><span style="margin-left: 22px;">Pause</span></p></button></li></div>
-<div style="cursor: pointer;"><li style="list-style-type: none;"><div style="cursor: pointer;"><button onclick="quit()" style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="padding-left: 15px;"><span>Quit</span></p></button></li></div>
+ <ul id="menu" class="navbar-nav navbar-right">
+ 
+<li id="toggle"  style="list-style-type: none;"><div style="cursor: pointer;"><button onclick="check()"   style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;"><img src="img1/pause.png" style="margin-top: 14px;padding-left: 11px;"><p style="padding-right: 15px"><span style="margin-left: 22px;">Pause</span></p></button></div></li>
+<li style="list-style-type: none;"><div style="cursor: pointer;"><button onclick="quit()" style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="padding-left: 15px;"><span>Quit</span></p></button></div></li>
 </ul>
 </div>
 </div>
@@ -354,6 +354,20 @@ option {
   });
   
   </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('menu');
+      const toggleButton = document.getElementById('toggle');
+      const quitButton = toggleButton.nextElementSibling;
+
+      if (!toggleButton.contains(event.target) && !quitButton.contains(event.target)) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+    });
+  });
+</script>
 <script>
   function quit() {
     if (confirm("Are you sure you want to quit?")) {

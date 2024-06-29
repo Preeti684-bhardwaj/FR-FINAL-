@@ -230,8 +230,9 @@ footer {
   #assementUi{
     margin-left: -2.5rem;
   }
-  pause-btn{
-    margin: 1.5rem;
+  .pause-btn{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
 }
 </style>
@@ -252,7 +253,7 @@ footer {
 		  <!-- <li ><a href="#"><img src="img/toyota_logo.png" style="margin-top:-15px;margin-left:-50px;width:207px;height:64px"></a></li> -->
       <div class="assessment" style="margin-top: 11px;"><li ><a href="#" id="assementUi" style="color:white;font-size:15px;">Assessment</a></li></div>
      <div>
-     <div class="pause-btn"><li id="toggle" style="list-style-type: none;"> <button onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></button></li></div> 
+      <li id="toggle" style="list-style-type: none;"> <button class="pause-btn" onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></button></li>
       <li style="list-style-type: none;"> <button style="color: white;text-decoration: none;"><img src="img1/quit.png" onclick="quit()" ><p><span>Quit</span></p></button></li>
     </ul>
 	  </div><!-- /.navbar-collapse -->

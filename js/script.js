@@ -873,7 +873,7 @@ function question1(data) {
       "</div>" +
       '<div class="col-sm-12">' +
       '<ul class="list-group" style="list-style-type: none">' +
-      '<li><input type="radio" name="age" id="myBtn1" value="id1" onclick=" myFunction1()" class="btn btn-default" style="border : 1px solid red;width:25px;height:25px;margin-bottom : 1%;outline: none">&nbsp&nbsp&nbsp<b style="color:#444444;font-size:14px">answers<li>' +
+      '<li><input type="radio" name="age" id="myBtn1" value="id1" onclick=" myFunction1()" class="btn btn-default" style="border : 1px solid red;width:25px;height:25px;margin-bottom : 1%;outline: none">&nbsp&nbsp<b style="color:#444444;font-size:14px">answers<li>' +
       '<li style="display:none">id1</li>' +
       "</ul>" +
       "</div>" +
